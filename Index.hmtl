@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Prompts — Guide</title>
+<style>
+  :root{
+    --bg:#070b16;
+    --bg2:#0a0f1f;
+    --border:#1c2436;
+    --blue:#38bdf8;
+    --blue-deep:#2563eb;
+    --orange:#ff8a00;
+    --yellow:#ffd43b;
+    --pink:#ff2e93;
+    --purple:#9b4dff;
+    --text:#f2f4f8;
+    --dim:#8b93a7;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(600px 400px at 8% 100%, rgba(255,212,59,0.08), transparent 70%),
+      radial-gradient(600px 400px at 92% 100%, rgba(155,77,255,0.10), transparent 70%),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.035) 0, rgba(255,255,255,0.035) 1px, transparent 1px, transparent 42px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0, rgba(255,255,255,0.035) 1px, transparent 1px, transparent 42px),
+      linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+    background-attachment:fixed;
+    color:var(--text);
+    font-family:Arial,Helvetica,sans-serif;
+    line-height:1.6;
+    min-height:100vh;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  header{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 32px;
+  }
+  .logo{font-weight:900;letter-spacing:0.5px;font-size:18px;}
+  .logo .all{color:var(--blue);}
+  .logo .prompts{color:var(--text);}
+  .join-btn{
+    background:linear-gradient(90deg,var(--blue),var(--blue-deep));
+    color:#06101f;font-weight:700;font-size:12px;padding:9px 16px;border-radius:8px;
+    box-shadow:0 0 18px rgba(56,189,248,0.35);
+  }
+  .cta-btn{
+    background:linear-gradient(90deg,var(--yellow),var(--orange));
+    color:#1a0f00;font-weight:700;font-size:12px;padding:9px 16px;border-radius:8px;
+    box-shadow:0 0 18px rgba(255,138,0,0.35);
+  }
+
+  .back-link{color:var(--dim);font-size:13px;font-weight:700;margin-left:20px;}
+  .back-link:hover{color:var(--blue);}
+
+  main{max-width:800px;margin:0 auto;padding:24px 24px 60px;}
+
+  .hero{
+    text-align:center;padding:40px 32px;
+    border:1px solid var(--border);border-radius:12px;
+    background:rgba(255,255,255,0.02);
+  }
+  .badge{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:11px;font-weight:700;letter-spacing:0.5px;color:var(--blue);
+    border:1px solid rgba(56,189,248,0.4);background:rgba(56,189,248,0.06);
+    padding:6px 14px;border-radius:999px;margin-bottom:20px;text-transform:uppercase;
+  }
+  .icon{font-size:44px;margin-bottom:14px;}
+  h1{
+    font-size:34px;font-weight:900;text-transform:uppercase;letter-spacing:0.5px;
+    margin-bottom:14px;line-height:1.15;
+    background:linear-gradient(90deg,var(--yellow),var(--orange),var(--pink),var(--purple));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 0 18px rgba(255,138,0,0.25));
+  }
+  .subtitle{color:var(--dim);font-size:15px;font-weight:700;margin-bottom:26px;}
+
+  ul.checklist{
+    list-style:none;display:inline-block;text-align:left;margin-bottom:28px;
+    border:1px solid var(--border);border-radius:12px;padding:18px 24px;
+    background:rgba(255,255,255,0.02);
+  }
+  ul.checklist li{color:var(--text);font-size:14px;margin-bottom:8px;font-weight:600;}
+  ul.checklist li:last-child{margin-bottom:0;}
+  ul.checklist li::before{content:"✓ ";font-weight:900;}
+  ul.checklist li:nth-child(4n+1)::before{color:var(--blue);}
+  ul.checklist li:nth-child(4n+2)::before{color:var(--yellow);}
+  ul.checklist li:nth-child(4n+3)::before{color:var(--orange);}
+  ul.checklist li:nth-child(4n+4)::before{color:var(--pink);}
+
+  .primary-cta{
+    display:inline-block;font-weight:700;font-size:14px;padding:12px 26px;border-radius:8px;
+    background:linear-gradient(90deg,var(--yellow),var(--orange));
+    color:#1a0f00;box-shadow:0 0 22px rgba(255,138,0,0.35);
+  }
+  .primary-cta:hover{filter:brightness(1.08);}
+
+  hr{border:none;height:2px;background:linear-gradient(90deg,var(--blue),var(--purple),var(--orange));margin:32px 0;opacity:0.7;}
+
+  article{
+    padding:28px 32px;
+    border:1px solid var(--border);border-radius:12px;
+    background:rgba(255,255,255,0.02);
+  }
+  article p{color:var(--dim);font-size:15px;margin-bottom:16px;}
+  article p:last-child{margin-bottom:0;}
+  article h2{font-size:19px;color:var(--text);border-left:3px solid var(--blue);padding-left:10px;margin:34px 0 12px;}
+  article h2:first-child{margin-top:0;}
+  article h3{font-size:14px;color:var(--yellow);text-transform:uppercase;letter-spacing:0.4px;margin:22px 0 8px;}
+
+  .kv{list-style:none;margin-bottom:16px;}
+  .kv li{font-size:15px;color:var(--dim);margin-bottom:8px;padding-left:0;}
+  .kv li b{color:var(--text);}
+
+  .timeline{list-style:none;border-left:2px solid var(--border);margin:8px 0 18px 6px;padding-left:18px;}
+  .timeline li{position:relative;font-size:14px;color:var(--dim);margin-bottom:14px;}
+  .timeline li:last-child{margin-bottom:0;}
+  .timeline li::before{content:"";position:absolute;left:-23px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--blue);}
+  .timeline li b{color:var(--text);display:block;font-size:13px;text-transform:uppercase;letter-spacing:0.3px;margin-bottom:2px;}
+
+  .prompt-card{
+    border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:14px;
+    background:rgba(255,255,255,0.015);
+  }
+  .prompt-card:last-child{margin-bottom:0;}
+  .prompt-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px;}
+  .prompt-num{color:var(--dim);font-size:12px;font-weight:700;letter-spacing:0.5px;}
+  .prompt-title{color:var(--text);font-size:15px;font-weight:700;}
+  .prompt-rate{color:var(--yellow);font-size:12.5px;font-weight:700;margin-bottom:10px;}
+  .prompt-text{
+    color:var(--text);font-size:13.5px;line-height:1.55;
+    background:rgba(0,0,0,0.35);border:1px solid var(--border);border-radius:8px;
+    padding:12px 14px;font-family:'Courier New',monospace;
+  }
+
+  .note{
+    border:1px solid rgba(56,189,248,0.35);background:rgba(56,189,248,0.06);
+    border-radius:10px;padding:14px 16px;font-size:13.5px;color:var(--dim);margin:16px 0;
+  }
+  .note b{color:var(--blue);}
+
+  .skool-box{
+    margin-top:10px;border:1px solid rgba(255,138,0,0.4);background:rgba(255,138,0,0.06);
+    border-radius:12px;padding:20px 22px;text-align:center;
+  }
+  .skool-box p{color:var(--dim);font-size:14px;margin-bottom:14px;}
+
+  .related{margin-top:40px;border-top:1px solid var(--border);padding:24px;background:#000;border-radius:12px;}
+  .related h3{font-size:12px;letter-spacing:0.5px;color:var(--dim);text-transform:uppercase;margin-bottom:14px;}
+  .related a{display:block;padding:12px 0;border-bottom:1px solid var(--border);font-size:14px;}
+  .related a:hover{color:var(--blue);}
+  .related a span{color:var(--dim);font-weight:400;}
+
+  footer{text-align:center;padding:20px;color:var(--dim);font-size:12px;border-top:1px solid var(--border);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><span class="all">ALL</span> <span class="prompts">PROMPTS</span></div>
+  <a href="https://all-prompts-library-811960511912.us-west1.run.app/" class="back-link">← Home</a>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <a href="https://www.skool.com/all-prompts-7170/about" class="join-btn">JOIN THE COMMUNITY</a>
+    <a href="https://www.skool.com/all-prompts-7170/about" class="cta-btn">GET AN AI GUIDE FREE</a>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer>© All Prompts &nbsp;·&nbsp; Zetsumetsu EOe™ | Zetsu EDU™ | Zetsu R&D CAGE: 20UB7 | © 2024 - 2026 Zetsumetsu Corporation™ | Artworqq Kevin Suber</footer>
+<script>
+// Add a guide by adding a key here. Link with guide.html?guide=<key>
+const GUIDES = {
+  "claude-mastery": {
+    badge: "UPDATED",
+    icon: "🤖",
+    title: "Claude Mastery Guide",
+    subtitle: "Become a Claude prompt engineering expert.",
+    checklist: ["Claude Prompt Engineering Guide","10+ Claude Mega-Prompts","Claude Prompt Engineering Mini-Course","Lifetime Access & Updates"],
+    body: [
+      "This guide walks you through the exact prompting patterns that get consistent, high-quality output from Claude.",
+      "Every strong prompt opens by telling Claude who it's acting as and what the task is. Skipping this is the biggest reason people get vague answers.",
+      "For multi-step tasks, ask Claude to reason through the problem before answering. Fixes most accuracy issues."
+    ]
+  },
+  "claude-fable": {
+    badge: "NEW",
+    icon: "📖",
+    title: "Claude Fable Mastery Guide",
+    subtitle: "Your guide to mastering Claude's most powerful model.",
+    checklist: ["Claude Fable 5 Field Guide","10 Claude Fable 5 Mega-Prompts","The 'Why Fable 5 Ghosts You' Playbook","Lifetime Access & Updates"],
+    bodyHtml: `
+      <h2>Field Guide</h2>
+
+      <h3>Who it's for</h3>
+      <p>Developers, writers, researchers, and power users who want more out of their prompts.</p>
+
+      <h3>What this is</h3>
+      <p>A practical guide to getting the most from Claude Fable 5 — how to prompt it well, what it's built for, and how to avoid common frustrations.</p>
+
+      <h3>When</h3>
+      <p>Written for right now — Fable 5's current capabilities as of mid-2026.</p>
+
+      <h3>Where</h3>
+      <p>Usable anywhere you access Fable 5 — API, Claude Platform, or chat interface.</p>
+
+      <h3>Why it matters</h3>
+      <p>Most people don't use Fable 5 anywhere near its full potential. This guide closes that gap.</p>
+
+      <h2>What It Is</h2>
+      <p>Claude Fable 5 is one of Anthropic's Mythos-tier models — Anthropic's highest model tier, sitting above Opus. It shares its underlying architecture with Claude Mythos 5, but includes extra safety guardrails around biology, cybersecurity, and LLM research and development.</p>
+
+      <h3>How to access it</h3>
+      <ul class="kv">
+        <li>Via the Anthropic API or Claude Platform</li>
+        <li>Model string: <b>claude-fable-5</b></li>
+      </ul>
+
+      <h3>Key timeline</h3>
+      <ul class="timeline">
+        <li><b>Launched</b>June 9, 2026</li>
+        <li><b>Briefly suspended</b>June 12–30, 2026, due to U.S. Department of Commerce export controls</li>
+        <li><b>Access restored</b>July 1, 2026</li>
+      </ul>
+
+      <h3>What it's good for</h3>
+      <p>Top-tier reasoning, complex tasks, and use cases where you want Anthropic's most capable model available. Here's what these skills are worth on the freelance market right now:</p>
+
+      <h2>10 Claude Fable 5 Mega-Prompts</h2>
+
+      <div class="prompt-card">
+        <div class="prompt-head"><span class="prompt-num">01 · FREELANCE COPYWRITING</span></div>
+        <div class="prompt-rate">$50–$500 per product description · $400–$12,000 for larger projects ($0.10–$1.00/word or $50–$160/hr)</div>
+        <div class="prompt-text">"Write a high-converting product description for [product] targeting [audience]. Include a hook, 3 benefit-driven bullet points, and a call-to-action. Match the tone of [brand example]."</div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-head"><span class="prompt-num">02 · BUSINESS PLAN DRAFTING</span></div>
+        <div class="prompt-rate">$500–$5,000 for a freelancer-written one-page plan · agencies charge $2,000–$25,000+</div>
+        <div class="prompt-text">"Act as a startup consultant. Build a one-page business plan for [business idea], including target market, revenue model, and first 90-day action steps."</div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-head"><span class="prompt-num">03 · FREELANCE PROPOSAL WRITER</span></div>
+        <div class="prompt-rate">$50–$300 per proposal on Upwork/Fiverr · more for complex scopes</div>
+        <div class="prompt-text">"Write a client proposal for a [type of project] job on Upwork/Fiverr. Include scope, timeline, pricing tiers, and a persuasive opening paragraph."</div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-head"><span class="prompt-num">04 · SOCIAL MEDIA CONTENT CALENDAR</span></div>
+        <div class="prompt-rate">$150–$1,000 for a 30-day calendar · $500–$3,000/month for retainers</div>
+        <div class="prompt-text">"Create a 30-day content calendar for [niche] on Instagram/TikTok, with post ideas, captions, and hashtag suggestions."</div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-head"><span class="prompt-num">05 · EMAIL MARKETING SEQUENCE</span></div>
+        <div class="prompt-rate">$300–$2,500 for a 5-email welcome sequence · higher for conversion specialists</div>
+        <div class="prompt-text">"Write a 5-email welcome sequence for a [product/service] business, moving new subscribers from interest to first purchase."</div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-head"><span class="prompt-num">06 · RESUME / LINKEDIN OPTIMIZATION</span></div>
+        <div class="prompt-rate">$150–$700 for a standard package · $350–$1,800+ at executive level</div>
+        <div class="prompt-text">"Rewrite this resume [paste resume] to target [job title], using strong action verbs and quantifiable achievements."</div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-head"><span class="prompt-num">07 · E-COMMERCE LISTING GENERATOR</span></div>
+        <div class="prompt-rate">$25–$150 per listing · $200–$800 for a bundled set</div>
+        <div class="prompt-text">"Write an Amazon/Etsy listing for [product], optimized with SEO keywords, a benefits-focused description, and bullet specs."</div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-head"><span class="prompt-num">08 · COURSE / EBOOK OUTLINE CREATOR</span></div>
+        <div class="prompt-rate">$100–$500 per outline</div>
+        <div class="prompt-text">"Create a detailed outline for a beginner course on [topic], broken into modules with learning objectives for each."</div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-head"><span class="prompt-num">09 · CLIENT ONBOARDING DOCS</span></div>
+        <div class="prompt-rate">$100–$400 per welcome packet · usually bundled with other services</div>
+        <div class="prompt-text">"Write a client welcome packet for a [freelance service] business, including expectations, process, and FAQ."</div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-head"><span class="prompt-num">10 · AD COPY GENERATOR</span></div>
+        <div class="prompt-rate">$50–$300 for a set of 5 ad variations</div>
+        <div class="prompt-text">"Write 5 variations of Facebook/Google ad copy for [product], each targeting a different customer pain point."</div>
+      </div>
+
+      <div class="note"><b>Note:</b> Rates above reflect what freelancers typically charge for these deliverables on the open market, not a guaranteed return from using a prompt. Actual pricing varies with experience, niche, and platform.</div>
+
+      <h2>The Playbook: "Why Fable 5 Ghosted You"</h2>
+      <p>If you tried to use Claude Fable 5 in mid-to-late June 2026 and found it suddenly unavailable, you weren't imagining things — it wasn't you, and it wasn't a bug. On June 12, 2026, Anthropic suspended access to both Fable 5 and its sibling model, Mythos 5, in order to comply with U.S. Department of Commerce export controls. For a few weeks, the model simply wasn't reachable, no matter how well-crafted your prompt was.</p>
+      <p>The good news: it wasn't permanent. The Department of Commerce lifted the relevant controls on June 30, 2026, and Anthropic restored access to both models on July 1, 2026. So if Fable 5 "ghosted you," the fix wasn't a better prompt or a workaround — it was just waiting for the restriction to lift. If you're reading this after that date, you should have full access again; if something still looks off, it's worth checking Anthropic's own status page rather than assuming it's something you did.</p>
+
+      <h2>Lifetime Access &amp; Updates</h2>
+      <p>This guide isn't a one-and-done download. As Claude Fable 5 evolves — new features, changed behaviors, updated best practices — this guide gets updated right along with it, and you'll have access to every future revision at no extra cost.</p>
+      <p>The link you were given is yours permanently: bookmark it, revisit it anytime, and you'll always be looking at the current version, not a snapshot that goes stale in a few months.</p>
+
+      <h2>Closing Thoughts</h2>
+      <p>That's the full picture: what Fable 5 is, how to actually access it, what it's worth to your work, and what to expect if the ground shifts under it again. None of this replaces just spending time in the model — the fastest way to get good at prompting Fable 5 is to use it, notice what works, and adjust. Treat this guide as your starting point, not your ceiling.</p>
+      <p>If anything here changes — pricing, access, model behavior — you'll see it reflected in your next update. But if you want to go further than a static guide, that's what the All Prompts Skool community is for. Inside, you'll get new prompts as soon as they're tested and proven, direct access to ask questions when something isn't working, and a group of people actually using this stuff to make money.</p>
+
+      <div class="skool-box">
+        <p>Bookmark this guide, keep building, and come join us inside All Prompts Skool to keep leveling up.</p>
+        <a href="https://www.skool.com/all-prompts-7170/about" class="primary-cta">Join All Prompts Skool</a>
+      </div>
+    `
+  },
+  "claude-skills": {
+    badge: "NEW",
+    icon: "🧩",
+    title: "Claude Skills Pack for Beginners",
+    subtitle: "10 ready-to-run Claude skills for everyday work.",
+    checklist: ["10 plug-and-play Claude skills","Writing, email, summaries, research","Beginner-friendly","Lifetime Access & Updates"],
+    body: [
+      "Ten prompts you can copy, paste, and run today to handle the writing and research tasks that eat up your week.",
+      "Each skill is self-contained. Swap in your own details where marked and run it as-is."
+    ]
+  },
+  "gemini-omni": {
+    badge: "NEW",
+    icon: "🎬",
+    title: "Gemini Omni Mastery Guide",
+    subtitle: "Step-by-step guide to Google's new video AI.",
+    checklist: ["40+ Copy & Paste Gemini Omni Video Prompts","Prompt Framework & Conversational-Edit Method","Create Ads, Explainers & Cinematic Video","Lifetime Access & Updates"],
+    body: [
+      "Gemini Omni's video generation rewards specificity. This breaks down the framework behind 40+ working prompts.",
+      "Describe the single change you want against the last result instead of rewriting the whole prompt."
+    ]
+  },
+  "gpts-directory": {
+    badge: null,
+    icon: "📄",
+    title: "100+ Top GPTs Directory",
+    subtitle: "Curated database of top GPTs.",
+    checklist: ["100+ Top GPTs","18 Categories","Discover top Custom GPTs by Category","Lifetime Access & Updates"],
+    body: [
+      "A hand-picked, categorized list of the GPTs worth your time, organized so you can find the right one in seconds."
+    ]
+  },
+  "gemini-prompts": {
+    badge: null,
+    icon: "✨",
+    title: "70+ Google Gemini Prompts",
+    subtitle: "Prompts designed for Google Gemini.",
+    checklist: ["70+ Gemini Prompts","With Description & Tags","Automate Your Life & Business","Lifetime Access & Updates"],
+    body: [
+      "70+ ready-to-use Gemini prompts, tagged by use case, so you can go straight to the one that fits."
+    ]
+  }
+};
+
+function badgeHtml(badge){
+  return badge ? `<span class="badge">${badge}</span>` : "";
+}
+
+function render(){
+  const params = new URLSearchParams(window.location.search);
+  const key = params.get("guide") || "claude-fable";
+  const guide = GUIDES[key] || GUIDES[Object.keys(GUIDES)[0]];
+
+  document.getElementById("app").innerHTML = `
+    <section class="hero">
+      ${badgeHtml(guide.badge)}
+      <div class="icon">${guide.icon}</div>
+      <h1>${guide.title}</h1>
+      <p class="subtitle">${guide.subtitle}</p>
+      <ul class="checklist">${guide.checklist.map(i=>`<li>${i}</li>`).join("")}</ul>
+    </section>
+
+    <hr>
+
+    <article>
+      ${guide.bodyHtml ? guide.bodyHtml : guide.body.map(p=>`<p>${p}</p>`).join("")}
+    </article>
+
+  `;
+}
+
+render();
+</script>
+</body>
+</html>
